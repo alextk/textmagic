@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: TextMagic::API::Response</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">TextMagic::API::Response</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/response_rb.html">
+                lib/response.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Used to cleanup response hash and extend it with custom reader methods.
+</p>
+<h3>Account response hash</h3>
+<p>
+When extended, it
+</p>
+<ul>
+<li>converts the <tt>balance</tt> value to <tt>float</tt> and
+
+</li>
+<li>adds a reader method <tt>balance</tt>.
+
+</li>
+</ul>
+<h3>Send response hash</h3>
+<p>
+When extended, it
+</p>
+<ul>
+<li>inverts the <tt>message_id</tt> hash and puts it in
+<tt>message_id_hash</tt>,
+
+</li>
+<li>adds an array of ids to <tt>message_ids</tt>,
+
+</li>
+<li>adds reader methods <tt>message_id_hash</tt>, <tt>message_ids</tt>,
+<tt>sent_text</tt> and <tt>parts_count</tt> to the hash.
+
+</li>
+<li>adds a reader method <tt>message_id</tt>, which returns a
+<tt>message_id</tt> for a given phone number, or the first message_id if no
+phone number is specified.
+
+</li>
+</ul>
+<h3>Message status response hash</h3>
+<p>
+When extended, it
+</p>
+<ul>
+<li>converts the <tt>credits_cost</tt> value to <tt>float</tt>,
+
+</li>
+<li>converts the <tt>created_time</tt> and <tt>completed_time</tt> values to
+<tt>Time</tt>,
+
+</li>
+<li>adds reader methods <tt>text</tt>, <tt>status</tt>, <tt>reply_number</tt>,
+<tt>credits_cost</tt>, <tt>created_time</tt> and <tt>completed_time</tt> to
+all values of the hash.
+
+</li>
+</ul>
+<h3>Receive status response hash</h3>
+<p>
+When extended, it
+</p>
+<ul>
+<li>converts the <tt>timestamp</tt> value to <tt>Time</tt>,
+
+</li>
+<li>adds reader methods <tt>messages</tt> and <tt>unread</tt> to the hash
+
+</li>
+<li>adds reader methods <tt>message_id</tt>, <tt>timestamp</tt>, <tt>text</tt>
+and <tt>from</tt> to all members of the <tt>messages</tt> array.
+
+</li>
+</ul>
+<h3>Delete reply response hash</h3>
+<p>
+When extended, it
+</p>
+<ul>
+<li>adds a reader method <tt>deleted</tt>.
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
