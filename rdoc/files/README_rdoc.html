@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.rdoc</li>
-            <li>Last modified: Thu May 28 17:57:16 +0200 2009</li>
+            <li>Last modified: Thu May 28 19:03:37 +0200 2009</li>
         </ul>
     </div>
 
@@ -137,7 +137,8 @@ href="../classes/TextMagic/API.html#M000005">TextMagic::API.message_status</a>
 for more information on <tt>message_status</tt> method.
 </p>
 <p>
-<b>It is strongly encouraged to use callbacks instead of this methods.</b>
+<b>It is strongly encouraged to use callbacks to receive updates on message
+status instead of using this method.</b>
 </p>
 <h3>Receiving replies</h3>
 <p>
@@ -145,9 +146,9 @@ To receive all available replies, run:
 </p>
 <pre>
   replies = api.receive
-  # =&gt; ['999271828182: Hello Fred', '999314159265: Good day']
+  # =&gt; ['999271828182: Hello Fred!', '999314159265: Good day!']
   replies.first.text
-  # =&gt; 'Hello Fred'
+  # =&gt; 'Hello Fred!'
   replies.last.from
   # =&gt; '999314159265'
   replies.last.message_id
@@ -167,7 +168,8 @@ href="../classes/TextMagic/API.html#M000006">TextMagic::API.receive</a> for
 more information on <tt>message_status</tt> method.
 </p>
 <p>
-<b>It is strongly encouraged to use callbacks instead of this methods.</b>
+<b>It is strongly encouraged to use callbacks to receive replies instead of
+using this method.</b>
 </p>
 <h3>Deleting retrieved replies</h3>
 <p>

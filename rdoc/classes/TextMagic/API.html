@@ -170,7 +170,7 @@ Example usage:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L16" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L16" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000000_source" class="dyn-source">
@@ -220,7 +220,7 @@ Example usage:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L32" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L32" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000001_source" class="dyn-source">
@@ -269,11 +269,11 @@ Example usage:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L176" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L184" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000007_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 176</span>
+                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 184</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_reply</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ids</span>)
       <span class="ruby-identifier">single</span> = <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
       <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">flatten!</span>
@@ -342,6 +342,10 @@ hash response, put the id in an array:
 <pre>
  api.message_status(['141421'])
 </pre>
+<p>
+<b>It is strongly encouraged to use callbacks to receive updates on message
+status instead of using this method.</b>
+</p>
 
                 </div>
                 
@@ -352,11 +356,11 @@ hash response, put the id in an array:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L128" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L131" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000005_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 128</span>
+                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 131</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message_status</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ids</span>)
       <span class="ruby-identifier">single</span> = <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
       <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">flatten!</span>
@@ -390,7 +394,9 @@ or the server returns an error response, an <a
 href="API/Error.html">Error</a> is raised.
 </p>
 <p>
-This method accepts an optional <tt>last_retrieved_id</tt> value.
+This method accepts an optional <tt>last_retrieved_id</tt> value. If called
+with this argument, the gateway will only return replies newer than the one
+with specified id.
 </p>
 <p>
 Example usage:
@@ -407,6 +413,10 @@ Example usage:
  api.receive '223606'
  # =&gt; []
 </pre>
+<p>
+<b>It is strongly encouraged to use callbacks to receive replies instead of
+using this method.</b>
+</p>
 
                 </div>
                 
@@ -417,11 +427,11 @@ Example usage:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L159" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L167" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000006_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 159</span>
+                        <pre><span class="ruby-comment cmt"># File lib/api.rb, line 167</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive</span>(<span class="ruby-identifier">last_retrieved_id</span> = <span class="ruby-keyword kw">nil</span>)
       <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-value str">'receive'</span>, <span class="ruby-ivar">@username</span>, <span class="ruby-ivar">@password</span>, <span class="ruby-identifier">:last_retrieved_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_retrieved_id</span>)
       <span class="ruby-constant">TextMagic</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span><span class="ruby-operator">::</span><span class="ruby-constant">Response</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-identifier">hash</span>)
@@ -502,7 +512,7 @@ get a hash response, put the phone number in an array:
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/api.rb#L73" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/5776f9ba5db247417938c11d1650839f8b101d8b/lib/api.rb#L73" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000002_source" class="dyn-source">
