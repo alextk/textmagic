@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TextMagic::API::Executor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            TextMagic::API::Executor 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/executor_rb.html">lib/executor.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>E</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000010">execute</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <span>HTTParty</span>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000010">
+                    
+                    <a name="M000010"></a><b>execute</b>(command, username, password, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Executes a command by sending a request to the TextMagic&#8217;s HTTP
+gateway. This is a low-level generic method used by methods in <a
+href="../API.html">TextMagic::API</a> class. You should never need to use
+this method directly.
+</p>
+<p>
+Parameters specified in the <tt>options</tt> hash will be added to the HTTP
+request&#8217;s URI.
+</p>
+<p>
+Returns a hash with values parsed from the server&#8217;s response if the
+command was successfully executed. In case the server replies with error,
+this method raises a <a href="Error.html">TextMagic::API::Error</a>.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
+                        
+                        | <a href="http://github.com/bobes/textmagic/blob/ac2bd60db17553da3f4b0e9ed4157cb29bf1ea0e/lib/executor.rb#L21" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000010_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/executor.rb, line 21</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">options</span> = {})
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TextMagic</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>, <span class="ruby-value str">'Command is undefined'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">blank?</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">username</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">username</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TextMagic</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>, <span class="ruby-value str">'Invalid username &amp; password combination'</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">username</span>, <span class="ruby-identifier">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>, <span class="ruby-identifier">:cmd</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">command</span>)
+        <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">blank?</span> }
+        <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value str">'/api'</span>, <span class="ruby-identifier">:query</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:json</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>[<span class="ruby-value str">'error_code'</span>]
+        <span class="ruby-identifier">response</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

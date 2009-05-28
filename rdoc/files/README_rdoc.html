@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            README.rdoc
+        </h1>
+        <ul class="files">
+            <li>README.rdoc</li>
+            <li>Last modified: Thu May 28 17:57:16 +0200 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1>TextMagic</h1>
+<p>
+<tt>textmagic</tt> gem is a Ruby interface to the TextMagic&#8217;s Bulk
+SMS Gateway. It can be used to easily integrate SMS features into your
+application. It supports sending messages, receiving replies and more. You
+need to have a valid <a href="http://www.textmagic.com">TextMagic</a>
+account to use this gem. You can get one at <a
+href="http://www.textmagic.com.">www.textmagic.com.</a>
+</p>
+<h2>Installation</h2>
+<p>
+Run
+</p>
+<pre>
+  gem install textmagic
+</pre>
+<p>
+Use <tt>sudo</tt> if required by your system.
+</p>
+<h2>Basic usage</h2>
+<p>
+Start with requiring <tt>textmagic</tt> library:
+</p>
+<pre>
+  require 'rubygems'
+  require 'textmagic'
+</pre>
+<p>
+Then create an API instance with your credentials:
+</p>
+<pre>
+  api = TextMagic::API.new(username, password)
+</pre>
+<p>
+These credentials will be used in all requests to the SMS gateway.
+</p>
+<h3>Account balance</h3>
+<p>
+Check your account&#8217;s balance:
+</p>
+<pre>
+  api.account.balance
+  # =&gt; 314.15
+</pre>
+<p>
+See <a
+href="../classes/TextMagic/API.html#M000001">TextMagic::API.account</a> for
+more information on <tt>account</tt> method.
+</p>
+<h3>Sending messages</h3>
+<p>
+To send a message to a single phone number, run:
+</p>
+<pre>
+  api.send 'Hi Wilma!', '999314159265'
+</pre>
+<p>
+You can even specify multiple phone numbers:
+</p>
+<pre>
+  api.send 'Hi everybody!', '999314159265', '999271828182'
+</pre>
+<p>
+Unicode messages are supported as well:
+</p>
+<pre>
+  api.send 'Вильма Привет!', '999314159265'
+</pre>
+<p>
+Long messages will be split to up to 3 parts. To limit maximum number of
+parts, specify an optional <tt>max_length</tt> parameter:
+</p>
+<pre>
+  api.send 'Very very long message...', '999314159265', :max_length =&gt; 2
+</pre>
+<p>
+See <a href="../classes/TextMagic/API.html#M000002">TextMagic::API.send</a>
+for more information on <tt>send</tt> method.
+</p>
+<h3>Checking sent message status</h3>
+<p>
+If you want to check sent message status, you have to use
+<tt>message_id</tt> returned in response to <tt>send</tt> command.
+</p>
+<pre>
+  api.send('Hi Wilma!', '999314159265')
+  # =&gt; '141421'
+  status = api.message_status('141421')
+  # =&gt; 'd'
+  status.completed_time
+  # =&gt; Fri May 22 10:10:18 +0200 2009
+</pre>
+<p>
+You can also check statuses of several messages at once, in which case
+you&#8217;ll get a hash with message ids as keys:
+</p>
+<pre>
+  api.send('Hi Wilma!', '999314159265', '999271828182').message_id
+  # =&gt; { '999314159265' =&gt; '141421', '999271828182' =&gt; '173205' }
+  statuses = api.message_status('141421', '173205')
+  # =&gt; { '141421' =&gt; 'r', '173205' =&gt; 'd' }
+  statuses['173205'].created_time
+  # =&gt; Thu May 28 16:41:45 +0200 2009
+</pre>
+<p>
+See <a
+href="../classes/TextMagic/API.html#M000005">TextMagic::API.message_status</a>
+for more information on <tt>message_status</tt> method.
+</p>
+<p>
+<b>It is strongly encouraged to use callbacks instead of this methods.</b>
+</p>
+<h3>Receiving replies</h3>
+<p>
+To receive all available replies, run:
+</p>
+<pre>
+  replies = api.receive
+  # =&gt; ['999271828182: Hello Fred', '999314159265: Good day']
+  replies.first.text
+  # =&gt; 'Hello Fred'
+  replies.last.from
+  # =&gt; '999314159265'
+  replies.last.message_id
+  # =&gt; '223606'
+</pre>
+<p>
+To prevent receiving old replies again, supply <tt>last_retrieved_id</tt>
+argument:
+</p>
+<pre>
+  api.receive('178082')
+  # =&gt; []
+</pre>
+<p>
+See <a
+href="../classes/TextMagic/API.html#M000006">TextMagic::API.receive</a> for
+more information on <tt>message_status</tt> method.
+</p>
+<p>
+<b>It is strongly encouraged to use callbacks instead of this methods.</b>
+</p>
+<h3>Deleting retrieved replies</h3>
+<p>
+After you retrieve replies, you can delete them from server by running:
+</p>
+<pre>
+  api.delete_reply '141421', '178082'
+  # =&gt; true
+</pre>
+<p>
+See <a
+href="../classes/TextMagic/API.html#M000007">TextMagic::API.delete_reply</a>
+for more information on <tt>message_status</tt> method.
+</p>
+<h2>Links</h2>
+<p>
+For general information on TextMagic&#8217;s Bulk SMS Gateway, visit the
+official <a href="http://api.textmagic.com">API documentation</a> or <a
+href="http://groups.google.com/group/textmagic-api">Google group</a>.
+</p>
+<h2>Copyright</h2>
+<p>
+Copyright &#169; 2009 Vladimír Bobeš Tužinský. See LICENSE for details.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>
