@@ -49,7 +49,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000009">execute</a></li>
+                <li><a href="#M000011">execute</a></li>
                 
             </ul>
         </dd>
@@ -83,22 +83,22 @@
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000009">
+                <div class="title" id="M000011">
                     
-                    <a name="M000009"></a><b>execute</b>(command, username, password, options = {})
+                    <a name="M000011"></a><b>execute</b>(command, username, password, options = {})
                     
                 </div>
                 
                 <div class="description">
                   <p>
-Executes a command by sending a request to the TextMagic&#8217;s HTTP
+Executes a command by sending a request to the TextMagic&#8217;s Bulk SMS
 gateway. This is a low-level generic method used by methods in <a
 href="../API.html">TextMagic::API</a> class. You should never need to use
 this method directly.
 </p>
 <p>
 Parameters specified in the <tt>options</tt> hash will be added to the HTTP
-request&#8217;s URI.
+POST request&#8217;s body together with command, username and password.
 </p>
 <p>
 Returns a hash with values parsed from the server&#8217;s response if the
@@ -113,13 +113,13 @@ this method raises a <a href="Error.html">TextMagic::API::Error</a>.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/ac2bd60db17553da3f4b0e9ed4157cb29bf1ea0e/lib/executor.rb#L21" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/05238270708e14cd7c17bd8496b2fabd5af53006/lib/executor.rb#L22" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000009_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/executor.rb, line 21</span>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/executor.rb, line 22</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">options</span> = {})
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">TextMagic</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>, <span class="ruby-value str">'Command is undefined'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">blank?</span>
         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">username</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">username</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
@@ -127,7 +127,7 @@ this method raises a <a href="Error.html">TextMagic::API::Error</a>.
         <span class="ruby-keyword kw">end</span>
         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">username</span>, <span class="ruby-identifier">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>, <span class="ruby-identifier">:cmd</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">command</span>)
         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">blank?</span> }
-        <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value str">'/api'</span>, <span class="ruby-identifier">:query</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:json</span>)
+        <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">post</span>(<span class="ruby-value str">'/api'</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:json</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response</span>[<span class="ruby-value str">'error_code'</span>]
         <span class="ruby-identifier">response</span>
       <span class="ruby-keyword kw">end</span></pre>
