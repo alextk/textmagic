@@ -1,73 +1,24 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>textmagic</title>
-  <meta name="description" content="textmagic gem is a Ruby interface to the TextMagic's Bulk SMS Gateway." />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-  <style type="text/css">
-    body {
-      margin: 30px;
-      font-family: georgia, times, serif;
-      text-align: center;
-      background: white;
-      color: #555;
-    }
-    a, li {
-      text-decoration: none;
-      color: #733;
-      margin: 0;
-      padding: 0;
-    }
-    h1, ul, p {
-      margin: 5px 0;
-      padding: 0;
-    }
-    ul {
-      list-style-type: none;
-    }
-    em {
-      font-style: italic;
-    }
-    p.code {
-      position: relative;
-      left: 50%;
-      width: 30em;
-      margin: 0 0 0 -10em;
-      text-align: left;
-    }
-  </style>
-</head>
-<body>
-  <h1>textmagic gem</h1>
-  <p><em>is a Ruby interface to the TextMagic's Bulk SMS Gateway.</em></p>
-  <h2>Snippet:</h2>
+---
+layout: layout
+name: textmagic gem
+meta-description: is a Ruby interface to the TextMagic's Bulk SMS Gateway.
+description: is a Ruby interface to the <a href="http://www.textmagic.com">TextMagic</a>'s Bulk SMS Gateway.
+keywords: ruby,sms,gem,api,bulk,send sms,receive sms
+forkme-page: /textmagic/tree/master
+---
+
+<div class="d2">
   <p class="code">
-    api = TextMagic::API.new(username, password)<br>
+    api = TextMagic::API.new('fred', 'my secret')<br>
     api.send 'Hi Wilma!', '999314159265'<br>
     api.receive<br>
-    # => ['999314159265: Hi Fred!']<br>
+    # => ['999314159265: Hello Fred!']<br>
   </p>
-  <h2>Code:</h2>
-  <ul>
-    <li><a href="http://github.com/bobes/textmagic/tree/master">github.com/bobes/textmagic</a></li>
+</div>
+<div class="footer">
+  <ul class="links">
+    <li><a href="http://bobes.github.com/textmagic/rdoc/">Doc</a></li>
+    <li><a href="http://github.com/bobes/textmagic/tree/master">Code</a></li>
+    <li><a href="http://bobes.github.com">Blame</a></li>
   </ul>
-  <h2>Doc:</h2>
-  <ul>
-    <li><a href="http://bobes.github.com/textmagic/rdoc/">bobes.github.com/textmagic/rdoc</a></li>
-  </ul>
-  <h2>Blame:</h2>
-  <ul>
-    <li><a href="http://bobes.github.com">Vladimír Bobeš Tužinský</a></li>
-  </ul>
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-1584061-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
-</body>
-</html>
+</div>
