@@ -43,7 +43,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000002">is_gsm</a>,</li>
+                <li><a href="#M000003">is_gsm</a>,</li>
                 
                 <li><a href="#M000004">is_unicode</a></li>
                 
@@ -79,9 +79,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000002">
+                <div class="title" id="M000003">
                     
-                    <a name="M000002"></a><b>is_gsm</b>(text)
+                    <a name="M000003"></a><b>is_gsm</b>(text)
                     
                 </div>
                 
@@ -98,12 +98,12 @@ GSM 03.38 charset, otherwise it returns <tt>false</tt>.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/d4e1923070f8d882933cf82d51003661b8ee110b/lib/charset.rb#L11" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000002_source" class="dyn-source">
+                    <div id="M000003_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 11</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_gsm</span>(<span class="ruby-identifier">text</span>)
         <span class="ruby-identifier">text</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/./</span><span class="ruby-identifier">u</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">GSM_CHARSET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>) }
