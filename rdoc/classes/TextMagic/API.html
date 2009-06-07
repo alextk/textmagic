@@ -27,9 +27,9 @@
         </h1>
         <ul class="files">
             
-            <li><a href="../../files/lib/charset_rb.html">lib/charset.rb</a></li>
-            
             <li><a href="../../files/lib/api_rb.html">lib/api.rb</a></li>
+            
+            <li><a href="../../files/lib/charset_rb.html">lib/charset.rb</a></li>
             
             <li><a href="../../files/lib/error_rb.html">lib/error.rb</a></li>
             
@@ -59,7 +59,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000004">account</a></li>
+                <li><a href="#M000001">account</a></li>
                 
             </ul>
         </dd>
@@ -68,9 +68,9 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000012">delete</a>,</li>
+                <li><a href="#M000010">delete</a>,</li>
                 
-                <li><a href="#M000011">delete_reply</a></li>
+                <li><a href="#M000009">delete_reply</a></li>
                 
             </ul>
         </dd>
@@ -88,7 +88,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000001">new</a></li>
+                <li><a href="#M000000">new</a></li>
                 
             </ul>
         </dd>
@@ -97,7 +97,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000009">receive</a></li>
+                <li><a href="#M000008">receive</a></li>
                 
             </ul>
         </dd>
@@ -106,7 +106,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000005">send</a>,</li>
+                <li><a href="#M000002">send</a>,</li>
                 
                 <li><a href="#M000007">status</a></li>
                 
@@ -145,9 +145,9 @@
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000001">
+                <div class="title" id="M000000">
                     
-                    <a name="M000001"></a><b>new</b>(username, password)
+                    <a name="M000000"></a><b>new</b>(username, password)
                     
                 </div>
                 
@@ -172,12 +172,12 @@ Example usage:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/eae937b509493e58b2a1fcd2bd54009f01efa6e6/lib/api.rb#L16" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000001_source" class="dyn-source">
+                    <div id="M000000_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/api.rb, line 16</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>)
       <span class="ruby-ivar">@username</span> = <span class="ruby-identifier">username</span>
@@ -191,9 +191,9 @@ Example usage:
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000004">
+                <div class="title" id="M000001">
                     
-                    <a name="M000004"></a><b>account</b>()
+                    <a name="M000001"></a><b>account</b>()
                     
                 </div>
                 
@@ -222,12 +222,12 @@ Example usage:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/eae937b509493e58b2a1fcd2bd54009f01efa6e6/lib/api.rb#L32" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000004_source" class="dyn-source">
+                    <div id="M000001_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/api.rb, line 32</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">account</span>
       <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-value str">'account'</span>, <span class="ruby-ivar">@username</span>, <span class="ruby-ivar">@password</span>)
@@ -239,15 +239,15 @@ Example usage:
             </div>
             
             <div class="method">
-                <div class="title" id="M000012">
+                <div class="title" id="M000010">
                     
-                    <a name="M000012"></a><b>delete</b>(*ids)
+                    <a name="M000010"></a><b>delete</b>(*ids)
                     
                 </div>
                 
                 <div class="description">
                   <p>
-Alias for <a href="API.html#M000011">delete_reply</a>
+Alias for <a href="API.html#M000009">delete_reply</a>
 </p>
 
                 </div>
@@ -257,15 +257,15 @@ Alias for <a href="API.html#M000011">delete_reply</a>
             </div>
             
             <div class="method">
-                <div class="title" id="M000011">
+                <div class="title" id="M000009">
                     
-                    <a name="M000011"></a><b>delete_reply</b>(*ids)
+                    <a name="M000009"></a><b>delete_reply</b>(*ids)
                     
                 </div>
                 
                 <div class="description">
                   <p>
-Executes a <a href="API.html#M000011">delete_reply</a> command by sending a
+Executes a <a href="API.html#M000009">delete_reply</a> command by sending a
 request to the TextMagic&#8217;s SMS gateway.
 </p>
 <p>
@@ -288,7 +288,7 @@ Example usage:
                 <div class="aka">
                     This method is also aliased as
                     
-                    <a href="API.html#M000012">delete</a>
+                    <a href="API.html#M000010">delete</a>
                     
                 </div>
                 
@@ -296,12 +296,12 @@ Example usage:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/eae937b509493e58b2a1fcd2bd54009f01efa6e6/lib/api.rb#L185" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000011_source" class="dyn-source">
+                    <div id="M000009_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/api.rb, line 185</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_reply</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ids</span>)
       <span class="ruby-identifier">single</span> = <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
@@ -410,9 +410,9 @@ message status instead of using this method.</b>
             </div>
             
             <div class="method">
-                <div class="title" id="M000009">
+                <div class="title" id="M000008">
                     
-                    <a name="M000009"></a><b>receive</b>(last_retrieved_id = nil)
+                    <a name="M000008"></a><b>receive</b>(last_retrieved_id = nil)
                     
                 </div>
                 
@@ -461,12 +461,12 @@ of using this method.</b>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/eae937b509493e58b2a1fcd2bd54009f01efa6e6/lib/api.rb#L168" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000009_source" class="dyn-source">
+                    <div id="M000008_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/api.rb, line 168</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive</span>(<span class="ruby-identifier">last_retrieved_id</span> = <span class="ruby-keyword kw">nil</span>)
       <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Executor</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-value str">'receive'</span>, <span class="ruby-ivar">@username</span>, <span class="ruby-ivar">@password</span>, <span class="ruby-identifier">:last_retrieved_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_retrieved_id</span>)
@@ -478,9 +478,9 @@ of using this method.</b>
             </div>
             
             <div class="method">
-                <div class="title" id="M000005">
+                <div class="title" id="M000002">
                     
-                    <a name="M000005"></a><b>send</b>(text, *args)
+                    <a name="M000002"></a><b>send</b>(text, *args)
                     
                 </div>
                 
@@ -546,12 +546,12 @@ get a hash response, put the phone number in an array:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
                         
                         | <a href="http://github.com/bobes/textmagic/blob/eae937b509493e58b2a1fcd2bd54009f01efa6e6/lib/api.rb#L73" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000005_source" class="dyn-source">
+                    <div id="M000002_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/api.rb, line 73</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">text</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
       <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>, <span class="ruby-value str">'Message text is empty'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">blank?</span>
