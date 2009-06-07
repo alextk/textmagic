@@ -49,7 +49,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000011">account</a></li>
+                <li><a href="#M000014">account</a></li>
                 
             </ul>
         </dd>
@@ -58,7 +58,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000013">message_status</a></li>
+                <li><a href="#M000016">message_status</a></li>
                 
             </ul>
         </dd>
@@ -67,7 +67,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000014">receive</a></li>
+                <li><a href="#M000017">receive</a></li>
                 
             </ul>
         </dd>
@@ -76,7 +76,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000012">send</a></li>
+                <li><a href="#M000015">send</a></li>
                 
             </ul>
         </dd>
@@ -98,9 +98,9 @@
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000011">
+                <div class="title" id="M000014">
                     
-                    <a name="M000011"></a><b>account</b>(hash)
+                    <a name="M000014"></a><b>account</b>(hash)
                     
                 </div>
                 
@@ -109,16 +109,17 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/response.rb#L9" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/588569b1a675097ccdc9f011c5000897a56992bf/lib/response.rb#L9" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000011_source" class="dyn-source">
+                    <div id="M000014_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/response.rb, line 9</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">account</span>(<span class="ruby-identifier">hash</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hash</span>)
         <span class="ruby-identifier">response</span>.<span class="ruby-identifier">balance</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">balance</span>.<span class="ruby-identifier">to_f</span>
+        <span class="ruby-identifier">response</span>.<span class="ruby-identifier">balance</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">balance</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">balance</span> <span class="ruby-operator">%</span> <span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
         <span class="ruby-identifier">response</span>
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
@@ -127,9 +128,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000013">
+                <div class="title" id="M000016">
                     
-                    <a name="M000013"></a><b>message_status</b>(hash, single)
+                    <a name="M000016"></a><b>message_status</b>(hash, single)
                     
                 </div>
                 
@@ -138,13 +139,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/response.rb#L30" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/588569b1a675097ccdc9f011c5000897a56992bf/lib/response.rb#L31" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000013_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 30</span>
+                    <div id="M000016_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 31</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">message_status</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">single</span>)
         <span class="ruby-identifier">response</span> = {}
         <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message_id</span>, <span class="ruby-identifier">message_hash</span><span class="ruby-operator">|</span>
@@ -167,9 +168,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000014">
+                <div class="title" id="M000017">
                     
-                    <a name="M000014"></a><b>receive</b>(hash)
+                    <a name="M000017"></a><b>receive</b>(hash)
                     
                 </div>
                 
@@ -178,13 +179,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/response.rb#L47" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/588569b1a675097ccdc9f011c5000897a56992bf/lib/response.rb#L48" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000014_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 47</span>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 48</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-identifier">hash</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'messages'</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message_hash</span><span class="ruby-operator">|</span>
           <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{message_hash['from']}: #{message_hash['text']}&quot;</span>
@@ -207,9 +208,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000012">
+                <div class="title" id="M000015">
                     
-                    <a name="M000012"></a><b>send</b>(hash, single)
+                    <a name="M000015"></a><b>send</b>(hash, single)
                     
                 </div>
                 
@@ -218,13 +219,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/543c43ee782680c4c2ece77de76dab8a3ccf3927/lib/response.rb#L15" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/588569b1a675097ccdc9f011c5000897a56992bf/lib/response.rb#L16" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000012_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 15</span>
+                    <div id="M000015_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/response.rb, line 16</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">single</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">nil</span>
         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">single</span>

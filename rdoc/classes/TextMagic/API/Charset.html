@@ -43,9 +43,18 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000003">is_gsm</a>,</li>
+                <li><a href="#M000000">is_gsm</a>,</li>
                 
-                <li><a href="#M000004">is_unicode</a></li>
+                <li><a href="#M000002">is_unicode</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000003">real_length</a></li>
                 
             </ul>
         </dd>
@@ -70,6 +79,13 @@
         </tr>
         
         
+        <tr valign='top'>
+            <td class="attr-name">ESCAPED_CHARS</td>
+            <td>=</td>
+            <td class="attr-value">&quot;{}\\~[]|€&quot;</td>
+        </tr>
+        
+        
     </table>
     
 
@@ -79,9 +95,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000003">
+                <div class="title" id="M000000">
                     
-                    <a name="M000003"></a><b>is_gsm</b>(text)
+                    <a name="M000000"></a><b>is_gsm</b>(text)
                     
                 </div>
                 
@@ -98,13 +114,13 @@ GSM 03.38 charset, otherwise it returns <tt>false</tt>.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/d4e1923070f8d882933cf82d51003661b8ee110b/lib/charset.rb#L11" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/0e500f84d2852cbe74b8a8fbd83d23eed7690ae6/lib/charset.rb#L12" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000003_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 11</span>
+                    <div id="M000000_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 12</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_gsm</span>(<span class="ruby-identifier">text</span>)
         <span class="ruby-identifier">text</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/./</span><span class="ruby-identifier">u</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">GSM_CHARSET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>) }
         <span class="ruby-keyword kw">true</span>
@@ -115,9 +131,9 @@ GSM 03.38 charset, otherwise it returns <tt>false</tt>.
             </div>
             
             <div class="method">
-                <div class="title" id="M000004">
+                <div class="title" id="M000002">
                     
-                    <a name="M000004"></a><b>is_unicode</b>(text)
+                    <a name="M000002"></a><b>is_unicode</b>(text)
                     
                 </div>
                 
@@ -134,15 +150,42 @@ GSM 03.38 charset, otherwise it returns <tt>false</tt>.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/d4e1923070f8d882933cf82d51003661b8ee110b/lib/charset.rb#L18" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/0e500f84d2852cbe74b8a8fbd83d23eed7690ae6/lib/charset.rb#L19" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000004_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 18</span>
+                    <div id="M000002_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 19</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_unicode</span>(<span class="ruby-identifier">text</span>)
         <span class="ruby-operator">!</span><span class="ruby-identifier">is_gsm</span>(<span class="ruby-identifier">text</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000003">
+                    
+                    <a name="M000003"></a><b>real_length</b>(text, unicode)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        
+                        | <a href="http://github.com/bobes/textmagic/blob/0e500f84d2852cbe74b8a8fbd83d23eed7690ae6/lib/charset.rb#L23" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000003_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/charset.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">real_length</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">unicode</span>)
+        <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">unicode</span> <span class="ruby-value">? </span><span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/[\{\}\\\~\[\]\|\€]/</span>).<span class="ruby-identifier">size</span>)
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>

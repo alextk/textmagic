@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.rdoc</li>
-            <li>Last modified: Sat May 30 13:47:33 +0200 2009</li>
+            <li>Last modified: Sun Jun 07 23:15:02 +0200 2009</li>
         </ul>
     </div>
 
@@ -83,7 +83,7 @@ Check your account&#8217;s balance:
 </pre>
 <p>
 See <a
-href="../classes/TextMagic/API.html#M000001">TextMagic::API.account</a> for
+href="../classes/TextMagic/API.html#M000004">TextMagic::API.account</a> for
 more information on <tt>account</tt> method.
 </p>
 <h3>Sending messages</h3>
@@ -113,7 +113,7 @@ parts, specify an optional <tt>max_length</tt> parameter:
   api.send 'Very very long message...', '999314159265', :max_length =&gt; 2
 </pre>
 <p>
-See <a href="../classes/TextMagic/API.html#M000002">TextMagic::API.send</a>
+See <a href="../classes/TextMagic/API.html#M000005">TextMagic::API.send</a>
 for more information on <tt>send</tt> method.
 </p>
 <h3>Checking sent message status</h3>
@@ -143,12 +143,13 @@ you&#8217;ll get a hash with message ids as keys:
 </pre>
 <p>
 See <a
-href="../classes/TextMagic/API.html#M000005">TextMagic::API.message_status</a>
+href="../classes/TextMagic/API.html#M000006">TextMagic::API.message_status</a>
 for more information on <tt>message_status</tt> method.
 </p>
 <p>
-<b>It is strongly encouraged to setup callbacks to receive updates on
-message status instead of using this method.</b>
+<b>It is strongly recommended to setup callbacks to receive updates on
+message status instead of using this method. Learn more about callbacks at
+<a href="http://api.textmagic.com/https-api">TextMagic API</a> site</b>
 </p>
 <h3>Receiving replies</h3>
 <p>
@@ -162,7 +163,7 @@ To receive all available replies, run:
   replies.last.from
   # =&gt; '999314159265'
   replies.last.message_id
-  # =&gt; '223606'
+  # =&gt; '178082'
 </pre>
 <p>
 To prevent receiving old replies again, supply <tt>last_retrieved_id</tt>
@@ -174,12 +175,13 @@ argument:
 </pre>
 <p>
 See <a
-href="../classes/TextMagic/API.html#M000006">TextMagic::API.receive</a> for
+href="../classes/TextMagic/API.html#M000009">TextMagic::API.receive</a> for
 more information on <tt>message_status</tt> method.
 </p>
 <p>
-<b>It is strongly encouraged to setup callbacks to receive replies instead
-of using this method.</b>
+<b>It is strongly recommended to setup callbacks to receive replies instead
+of using this method. Learn more about callbacks at <a
+href="http://api.textmagic.com/https-api">TextMagic API</a> site</b>
 </p>
 <h3>Deleting retrieved replies</h3>
 <p>
@@ -191,12 +193,28 @@ After you retrieve replies, you can delete them from server by running:
 </pre>
 <p>
 See <a
-href="../classes/TextMagic/API.html#M000007">TextMagic::API.delete_reply</a>
+href="../classes/TextMagic/API.html#M000011">TextMagic::API.delete_reply</a>
 for more information on <tt>message_status</tt> method.
+</p>
+<h2>Command-line utility</h2>
+<p>
+The <tt>textmagic</tt> gem also features a handy command-line utility. It
+gives you access to all of the gem&#8217;s features. Run
+</p>
+<pre>
+  tm
+</pre>
+<p>
+from your console to see help on its usage.
+</p>
+<p>
+<em>Note: This has only been tested on a Mac. If you have any troubles
+using this utility, contact the author (or submit a patch).</em>
 </p>
 <h2>Copyright</h2>
 <p>
-Copyright &#169; 2009 Vladimír Bobeš Tužinský. See LICENSE for details.
+Copyright &#169; 2009 Vladimír Bobeš Tužinský. See <a
+href="LICENSE.html">LICENSE</a> for details.
 </p>
 
     </div>

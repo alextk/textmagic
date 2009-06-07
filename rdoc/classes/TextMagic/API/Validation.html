@@ -43,9 +43,9 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000016">validate_phones</a>,</li>
+                <li><a href="#M000019">validate_phones</a>,</li>
                 
-                <li><a href="#M000015">validate_text_length</a></li>
+                <li><a href="#M000018">validate_text_length</a></li>
                 
             </ul>
         </dd>
@@ -86,9 +86,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000016">
+                <div class="title" id="M000019">
                     
-                    <a name="M000016"></a><b>validate_phones</b>(*phones)
+                    <a name="M000019"></a><b>validate_phones</b>(*phones)
                     
                 </div>
                 
@@ -106,12 +106,12 @@ otherwise it returns <tt>false</tt>.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/d4e1923070f8d882933cf82d51003661b8ee110b/lib/validation.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/0e500f84d2852cbe74b8a8fbd83d23eed7690ae6/lib/validation.rb#L26" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000016_source" class="dyn-source">
+                    <div id="M000019_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/validation.rb, line 26</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_phones</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">phones</span>)
         <span class="ruby-identifier">phones</span>.<span class="ruby-identifier">flatten!</span>
@@ -125,9 +125,9 @@ otherwise it returns <tt>false</tt>.
             </div>
             
             <div class="method">
-                <div class="title" id="M000015">
+                <div class="title" id="M000018">
                     
-                    <a name="M000015"></a><b>validate_text_length</b>(text, unicode, parts = 3)
+                    <a name="M000018"></a><b>validate_text_length</b>(text, unicode, parts = 3)
                     
                 </div>
                 
@@ -150,16 +150,16 @@ messages are 70, 134 and 201 respectively.</em>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
                         
-                        | <a href="http://github.com/bobes/textmagic/blob/d4e1923070f8d882933cf82d51003661b8ee110b/lib/validation.rb#L18" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/bobes/textmagic/blob/0e500f84d2852cbe74b8a8fbd83d23eed7690ae6/lib/validation.rb#L18" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000015_source" class="dyn-source">
+                    <div id="M000018_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/validation.rb, line 18</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_text_length</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">unicode</span>, <span class="ruby-identifier">parts</span> = <span class="ruby-value">3</span>)
         <span class="ruby-identifier">max_text_length</span> = (<span class="ruby-identifier">unicode</span> <span class="ruby-value">? </span><span class="ruby-constant">MAX_LENGTH_UNICODE</span> <span class="ruby-operator">:</span> <span class="ruby-constant">MAX_LENGTH_GSM</span>)[<span class="ruby-identifier">parts</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
-        <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">max_text_length</span>
+        <span class="ruby-identifier">real_length</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">unicode</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">max_text_length</span>
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
