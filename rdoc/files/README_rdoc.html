@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.rdoc</li>
-            <li>Last modified: Sun Jun 07 23:18:13 +0200 2009</li>
+            <li>Last modified: Sat Jun 13 10:24:49 +0200 2009</li>
         </ul>
     </div>
 
@@ -111,6 +111,13 @@ parts, specify an optional <tt>max_length</tt> parameter:
 </p>
 <pre>
   api.send 'Very very long message...', '999314159265', :max_length =&gt; 2
+</pre>
+<p>
+If you want to postpone message delivery, specify a <tt>send_time</tt>
+parameter:
+</p>
+<pre>
+  api.send 'Two hours later', '999314159265', :send_time =&gt; Time.now.to_i + 7200
 </pre>
 <p>
 See <a href="../classes/TextMagic/API.html#M000002">TextMagic::API.send</a>
